@@ -12,11 +12,11 @@ export default defineConfig({
         "@": resolve(__dirname, "./src"),
       },
     },
-    ssr: {
-      noExternal: [
-        "@ark-ui/solid",
-        "@kobalte/core",
-      ],
-    },
+    // ssr: {
+    //   noExternal: [
+    //     "@ark-ui/solid",
+    //     "@kobalte/core",
+    //   ],
+    // },
   },
 });
