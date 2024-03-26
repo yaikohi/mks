@@ -1,5 +1,4 @@
 import { createSession } from "@solid-mediakit/auth/client";
-import { Button } from "./ui/button";
 import { Show } from "solid-js";
 import { SignInButton } from "./sign-in-button";
 import { SignOutButton } from "./sign-out-button";

@@ -1,9 +1,9 @@
 import { signOut } from "@solid-mediakit/auth/client";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 
 export const SignOutButton = () => {
   return (
-    <Button
+    <button
       onClick={() =>
         void signOut({
           redirectTo: "/",
@@ -11,6 +11,6 @@ export const SignOutButton = () => {
         })}
     >
       Sign Out
-    </Button>
+    </button>
   );
 };
