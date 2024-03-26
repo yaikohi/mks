@@ -1,5 +1,5 @@
 {
-  "name": "bd",
+  "name": "mks",
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
