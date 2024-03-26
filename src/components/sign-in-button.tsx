@@ -1,6 +1,6 @@
 import { signIn } from "@solid-mediakit/auth/client";
-// import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export const SignInButton = () => {
-  return <button onClick={() => signIn("google")}>Sign In</button>;
+  return <Button onClick={() => signIn("google")}>Sign In</Button>;
 };

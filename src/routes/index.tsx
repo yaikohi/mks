@@ -1,6 +1,5 @@
 import { MainLayoutWrapper } from "@/components/main-layout-wrapper";
 
-
 export default function Home() {
   return (
     <MainLayoutWrapper>
