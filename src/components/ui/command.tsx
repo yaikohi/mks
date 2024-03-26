@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils";
 import type { Dialog as DialogPrimitive } from "@kobalte/core";
 import { Combobox as ComboboxPrimitive } from "@kobalte/core";
