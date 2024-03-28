@@ -1,6 +1,6 @@
+import { Box } from "@/components/box";
 import { CommandDialogDemo } from "@/components/command-dialog";
 import { MainLayoutWrapper } from "@/components/main-layout-wrapper";
-import { ComponentWithGenericChildrenType } from "@/types";
 import { createSession } from "@solid-mediakit/auth/client";
 import { Show, type VoidComponent } from "solid-js";
 
@@ -44,17 +44,4 @@ const Protected: VoidComponent = () => {
     </MainLayoutWrapper>
   );
 };
-const Box: ComponentWithGenericChildrenType = ({ children }) => {
-  return (
-    <>
-
-      <div class="my-6">
-        <div class="flex flex-row place-items-center gap-2 bg-secondary text-secondary-foreground rounded-md p-4 -m-4">
-          {children}
-
-        </div>
-      </div>
-    </>
-  )
-}
 export default Protected;
