@@ -9,20 +9,20 @@
   },
   "dependencies": {
     "@ark-ui/solid": "^2.2.0",
-    "@auth/core": "^0.28.0",
-    "@auth/drizzle-adapter": "^0.8.0",
+    "@auth/core": "^0.28.1",
+    "@auth/drizzle-adapter": "^0.8.1",
     "@kobalte/core": "^0.12.6",
     "@libsql/client": "^0.5.6",
     "@solid-mediakit/auth": "^2.0.7",
     "@solid-primitives/refs": "^1.0.8",
     "@solidjs/meta": "^0.29.3",
     "@solidjs/router": "^0.13.1",
-    "@solidjs/start": "^1.0.0-rc.0",
+    "@solidjs/start": "1.0.0-rc.0",
     "chart.js": "^4.4.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "corvu": "^0.4.8",
-    "drizzle-orm": "^0.30.4",
+    "drizzle-orm": "^0.30.6",
     "embla-carousel-solid": "^8.0.0",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.16",
@@ -37,6 +37,6 @@
     "autoprefixer": "^10.4.19",
     "drizzle-kit": "^0.20.14",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.3"
   }
 }

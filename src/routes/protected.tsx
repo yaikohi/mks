@@ -1,8 +1,7 @@
 import { Box } from "@/components/box";
-import { CommandDialogDemo } from "@/components/command-dialog";
 import { MainLayoutWrapper } from "@/components/main-layout-wrapper";
 import { createSession } from "@solid-mediakit/auth/client";
-import { Show, type VoidComponent } from "solid-js";
+import { ParentComponent, Show } from "solid-js";
 
 const ProtectedFallback = () => {
   return (
@@ -15,7 +14,7 @@ const ProtectedFallback = () => {
   );
 };
 
-const Protected: VoidComponent = () => {
+const ProtectedPage: ParentComponent = (props) => {
   const session = createSession();
 
   return (
@@ -35,13 +34,17 @@ const Protected: VoidComponent = () => {
               </div>
               <p>Hey there {us.user?.name}! You are signed in!</p>
             </Box>
+
+            {/* Child pages */}
             <Box>
-              <CommandDialogDemo />
+              {props.children}
             </Box>
+
           </>
         )}
       </Show>
     </MainLayoutWrapper>
   );
 };
-export default Protected;
+
+export default ProtectedPage;

@@ -1,16 +1,16 @@
 import { createEffect, createSignal, onCleanup, type JSXElement } from "solid-js"
 
-import { TbCalendar, TbMail, TbMoodSmile, TbRocket, TbSettings, TbUser } from "solid-icons/tb"
+import { TbCalendar, TbMail, TbMoodSmile, TbProgressBolt, TbRocket, TbSettings, TbUser } from "solid-icons/tb"
 
 import {
-  CommandDialog,
+  CommandDialog as CommandDialogShadcn,
   CommandHeading,
   CommandInput,
   CommandItem,
   CommandItemLabel,
-  CommandItemShortcut,
   CommandList
 } from "@/components/ui/command"
+import { A } from "@solidjs/router"
 
 type ListOption = {
   icon: JSXElement
@@ -24,7 +24,7 @@ type List = {
   options: ListOption[]
 }
 
-export function CommandDialogDemo() {
+export function CommandDialog() {
   const [open, setOpen] = createSignal(false)
 
   createEffect(() => {
@@ -32,6 +32,11 @@ export function CommandDialogDemo() {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setOpen((open) => !open)
+      }
+      if (e.key === 'Tab') {
+        console.log(e.key)
+        e.preventDefault()
+        e.stopPropagation();
       }
     }
 
@@ -47,57 +52,26 @@ export function CommandDialogDemo() {
       <p class="text-sm">
         navigate with{" "}
         <kbd class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
-          {/*
-          <span class="text-xs">⌘ + J</span>
-          */}
           <span class="text-xs">ctrl + J</span>
         </kbd>
       </p>
-      <CommandDialog<ListOption, List>
+      <CommandDialogShadcn<ListOption, List>
         options={[
           {
-            label: "Suggestions",
+            label: "Protected-Pages",
             options: [
               {
                 icon: <TbCalendar class="mr-2 size-4" />,
-                label: "Calendar",
-                value: "Calendar"
+                label: "calendar",
+                value: "calendar"
               },
               {
-                icon: <TbMoodSmile class="mr-2 size-4" />,
-                label: "Search emoji",
-                value: "Search emoji"
+                icon: <TbProgressBolt class="mr-2 size-4" />,
+                label: "index",
+                value: "index"
               },
-              {
-                icon: <TbRocket class="mr-2 size-4" />,
-                label: "Launch",
-                value: "Launch"
-              }
             ]
           },
-          {
-            label: "Settings",
-            options: [
-              {
-                icon: <TbUser class="mr-2 size-4" />,
-                label: "Profile",
-                value: "Profile",
-                shortcut: <CommandItemShortcut>⌘P</CommandItemShortcut>
-              },
-              {
-                icon: <TbMail class="mr-2 size-4" />,
-                label: "Mail",
-                value: "Mail",
-                shortcut: <CommandItemShortcut>⌘B</CommandItemShortcut>
-              },
-              {
-                icon: <TbSettings class="mr-2 size-4" />,
-                label: "Setting",
-                value: "Setting",
-                shortcut: <CommandItemShortcut>⌘S</CommandItemShortcut>
-              }
-            ]
-          }
         ]
         }
         optionValue="value"
@@ -106,11 +80,14 @@ export function CommandDialogDemo() {
         optionGroupChildren="options"
         placeholder="Type a command or search..."
         itemComponent={(props) => (
-          <CommandItem item={props.item}>
-            {props.item.rawValue.icon}
-            <CommandItemLabel>{props.item.rawValue.label}</CommandItemLabel>
-            {props.item.rawValue.shortcut}
-          </CommandItem>
+          <A href={`/protected/${props.item.rawValue.label}`}>
+            <CommandItem item={props.item}>
+              <CommandItemLabel>
+                {props.item.rawValue.label}
+              </CommandItemLabel>
+            </CommandItem>
+          </A>
+
         )}
         sectionComponent={(props) => (
           <CommandHeading>{props.section.rawValue.label}</CommandHeading>
@@ -120,7 +97,7 @@ export function CommandDialogDemo() {
       >
         <CommandInput />
         <CommandList />
-      </CommandDialog>
+      </CommandDialogShadcn>
     </>
   )
 }
