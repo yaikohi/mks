@@ -1,6 +1,6 @@
 import { createEffect, createSignal, onCleanup, type JSXElement } from "solid-js"
 
-import { TbCalendar, TbMail, TbMoodSmile, TbProgressBolt, TbRocket, TbSettings, TbUser } from "solid-icons/tb"
+import { TbCalendar, TbHome, TbMail, TbMoodSmile, TbParking, TbProgressBolt, TbRocket, TbSettings, TbUser } from "solid-icons/tb"
 
 import {
   CommandDialog as CommandDialogShadcn,
@@ -72,6 +72,16 @@ export function CommandDialog() {
               },
             ]
           },
+          {
+            label: "Public pages",
+            options: [
+              {
+                icon: <TbHome class="mr-2 size-4" />,
+                label: "home",
+                value: "home"
+              }
+            ]
+          }
         ]
         }
         optionValue="value"
@@ -82,6 +92,7 @@ export function CommandDialog() {
         itemComponent={(props) => (
           <A href={`/protected/${props.item.rawValue.label}`}>
             <CommandItem item={props.item}>
+              {props.item.rawValue.icon}
               <CommandItemLabel>
                 {props.item.rawValue.label}
               </CommandItemLabel>
